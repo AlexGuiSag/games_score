@@ -1,0 +1,32 @@
+<h1>Listing Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Red card</th>
+      <th>Yellow card</th>
+      <th>Goal</th>
+      <th>Goal scorer</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for score <- @scores do %>
+    <tr>
+      <td><%= score.red_card %></td>
+      <td><%= score.yellow_card %></td>
+      <td><%= score.goal %></td>
+      <td><%= score.goal_scorer %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.score_path(@conn, :show, score) %></span>
+        <span><%= link "Edit", to: Routes.score_path(@conn, :edit, score) %></span>
+        <span><%= link "Delete", to: Routes.score_path(@conn, :delete, score), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Score", to: Routes.score_path(@conn, :new) %></span>

@@ -1,0 +1,28 @@
+<h1>Show Score</h1>
+
+<ul>
+
+  <li>
+    <strong>Red card:</strong>
+    <%= @score.red_card %>
+  </li>
+
+  <li>
+    <strong>Yellow card:</strong>
+    <%= @score.yellow_card %>
+  </li>
+
+  <li>
+    <strong>Goal:</strong>
+    <%= @score.goal %>
+  </li>
+
+  <li>
+    <strong>Goal scorer:</strong>
+    <%= @score.goal_scorer %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.score_path(@conn, :edit, @score) %></span>
+<span><%= link "Back", to: Routes.score_path(@conn, :index) %></span>
