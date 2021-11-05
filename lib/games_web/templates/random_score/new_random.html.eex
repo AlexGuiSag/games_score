@@ -1,0 +1,5 @@
+<h1>New Score</h1>
+
+<%= render "form_random.html", Map.put(assigns, :action, Routes.random_score_path(@conn, :create_random)) %>
+
+<span><%= link "Back", to: Routes.score_path(@conn, :index) %></span>

@@ -4,4 +4,7 @@ defmodule GamesWeb.PageController do
   def index(conn, _params) do
     render(conn, "index.html")
   end
+  def new_random(conn, _params)do
+    render(conn, "new_random.html")
+  end
 end

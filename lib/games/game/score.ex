@@ -17,4 +17,6 @@ defmodule Games.Game.Score do
     |> cast(attrs, [:red_card, :yellow_card, :goal, :goal_scorer])
     |> validate_required([:red_card, :yellow_card, :goal, :goal_scorer])
   end
+
+
 end
