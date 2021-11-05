@@ -1,4 +1,4 @@
-<h1>Listing Scores</h1>
+<center><h1>Listing Scores</h1></center>
 
 <table>
   <thead>
@@ -30,3 +30,4 @@
 </table>
 
 <span><%= link "New Score", to: Routes.score_path(@conn, :new) %></span>
+<center><%= link "Random Score", to: Routes.random_score_path(@conn, :new_random) %></center>
