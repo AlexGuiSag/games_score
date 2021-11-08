@@ -61,15 +61,17 @@ defmodule GamesWeb.ScoreController do
     |> redirect(to: Routes.score_path(conn, :index))
   end
 
+
   def create_random(conn, %{"score" => score_params}) do
+    score = Enum.random(score_params)
     case Game.create_score(score_params) do
-      {:ok, score} ->
+      {:ok, } ->
         conn
         |> put_flash(:info, "Score created successfully.")
-        |> redirect(to: Routes.score_path(conn, :show, score))
+        |> redirect(to: Routes.score_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, :score, score)
     end
   end
 

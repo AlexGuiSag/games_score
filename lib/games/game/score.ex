@@ -18,4 +18,5 @@ defmodule Games.Game.Score do
     |> validate_required([:red_card, :yellow_card, :goal, :goal_scorer])
   end
 
+  #|> cast(attrs, [:red_card, Enum.random([1..10]), :yellow_card, Enum.random([1..10]), :goal, Enum.random([1..20]), :goal_scorer, Enum.random(["Juanito", "Pedrito", "Angelito", "Pablito", "Toñito"]) ])
 end
