@@ -6,16 +6,14 @@ defmodule GamesWeb.ScoreController do
 
   def index(conn, _params) do
     scores = Game.list_scores()
-    render(conn, "index.html", scores: scores)
+    changeset = Game.change_score(%Score{})
+    render(conn, "index.html", scores: scores, changeset: changeset)
   end
 
   def new(conn, _params) do
     changeset = Game.change_score(%Score{})
     render(conn, "new.html", changeset: changeset)
   end
-
-
-
 
   def create(conn, %{"score" => score_params}) do
     case Game.create_score(score_params) do
@@ -62,4 +60,17 @@ defmodule GamesWeb.ScoreController do
     |> put_flash(:info, "Score deleted successfully.")
     |> redirect(to: Routes.score_path(conn, :index))
   end
+
+  def create_random(conn, %{"score" => score_params}) do
+    case Game.create_score(score_params) do
+      {:ok, score} ->
+        conn
+        |> put_flash(:info, "Score created successfully.")
+        |> redirect(to: Routes.score_path(conn, :show, score))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
+
 end

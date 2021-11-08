@@ -18,10 +18,7 @@ defmodule GamesWeb.Router do
 
     get "/", PageController, :index
     resources "/scores", ScoreController
-
-
-    get "/new-random", RandomScoreController, :new_random
-    post "/random", RandomScoreController, :create_random
+    post "/scores", ScoreController, :create_random
 
 
   end

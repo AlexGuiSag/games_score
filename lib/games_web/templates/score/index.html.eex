@@ -30,4 +30,7 @@
 </table>
 
 <span><%= link "New Score", to: Routes.score_path(@conn, :new) %></span>
-<center><%= link "Random Score", to: Routes.random_score_path(@conn, :new_random) %></center>
+
+<center><%= link "Random Score", to: Routes.score_path(@conn, :index) %></center>
+
+<%= render "form_random.html", Map.put(assigns, :action, Routes.score_path(@conn, :create_random)) %>
